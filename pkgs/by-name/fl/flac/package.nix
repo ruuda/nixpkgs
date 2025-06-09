@@ -19,11 +19,9 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitHub {
     owner = "xiph";
     repo = "flac";
-    tag = finalAttrs.version;
-    hash = "sha256-B6XRai5UOAtY/7JXNbI3YuBgazi1Xd2ZOs6vvLq9LIs=";
+    rev = "6d444f394504de31fc20d9e39487802f0012375c";
+    hash = "sha256-3RjPVdBd0GaUbsqqG2f8THMNTS97/EMw/Kn3TOJ/X9w=";
   };
-
-  hardeningDisable = [ "trivialautovarinit" ];
 
   nativeBuildInputs = [
     cmake
@@ -48,7 +46,6 @@ stdenv.mkDerivation (finalAttrs: {
   ];
   CXXFLAGS = [ "-O3" ];
 
-  patches = [ ./package.patch ];
   doCheck = true;
 
   outputs =
