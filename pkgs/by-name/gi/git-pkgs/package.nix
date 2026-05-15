@@ -7,16 +7,16 @@
 }:
 buildGoModule rec {
   pname = "git-pkgs";
-  version = "0.15.3";
+  version = "0.16.0";
 
   src = fetchFromGitHub {
     owner = "git-pkgs";
     repo = "git-pkgs";
     tag = "v${version}";
-    hash = "sha256-VYITWQfinKxDjShApjoN7h8JKbyW8ft09e6TSYtdjT8=";
+    hash = "sha256-5fo4Zvh5ho8WefDv3bV5sVi9j3RwHWP4+ShigqDOUl8=";
   };
 
-  vendorHash = "sha256-0QddQURXTZV/nKhARA7PVu61Mr/VZojf5mrvZvd7uWQ=";
+  vendorHash = "sha256-GPtw+iCUH5/V13WNSvmktchXOz0PGW5ckhCqpiRhHLQ=";
 
   subPackages = [ "." ];
 

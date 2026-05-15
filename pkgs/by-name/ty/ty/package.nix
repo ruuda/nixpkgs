@@ -7,6 +7,9 @@
   # nativeBuildInputs
   installShellFiles,
 
+  # buildInputs
+  rust-jemalloc-sys,
+
   buildPackages,
   versionCheckHook,
   nix-update-script,
@@ -14,14 +17,14 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "ty";
-  version = "0.0.33";
+  version = "0.0.35";
 
   src = fetchFromGitHub {
     owner = "astral-sh";
     repo = "ty";
     tag = finalAttrs.version;
     fetchSubmodules = true;
-    hash = "sha256-cc/1piasUlv3wwYsXdJaKc8Ck9KF1/FjAjHv6XL6E7o=";
+    hash = "sha256-ce3v/ZUlMNMGlikWSriGybScUrRharFswq5Z47dTtKY=";
   };
 
   # For Darwin platforms, remove the integration test for file notifications,
@@ -35,9 +38,10 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoBuildFlags = [ "--package=ty" ];
 
-  cargoHash = "sha256-8DaJWHFBoVzpbkd9QmJ72a5NeKuX99lfDq3uUp+wd5I=";
+  cargoHash = "sha256-9/4+cK7BdJbXQKK7xC9MMfqARlivbuyYZ8j02srakxU=";
 
   nativeBuildInputs = [ installShellFiles ];
+  buildInputs = [ rust-jemalloc-sys ];
 
   # `ty`'s tests use `insta-cmd`, which depends on the structure of the `target/` directory,
   # and also fails to find the environment variable `$CARGO_BIN_EXE_ty`, which leads to tests failing.

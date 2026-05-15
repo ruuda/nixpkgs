@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "llmfit";
-  version = "0.9.17";
+  version = "0.9.23";
 
   src = fetchFromGitHub {
     owner = "AlexsJones";
     repo = "llmfit";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-ILLNExMAsBhikwrXZa9qgNlJzKTEwhjhvl5UQGtKPT0=";
+    hash = "sha256-KtmXNlKPz4W2hfLa1iTPUVrocEjXWfTcoMwcznV4ZEk=";
   };
 
-  cargoHash = "sha256-ftnGz3mUGMOQveKbsiUVSsP0hqkj9LVxnGrCG+fzvJ4=";
+  cargoHash = "sha256-fx9/LVZrbwfGL03Xv53q4FaC6obKadZWesj4SfMvG78=";
 
   meta = {
     description = "TUI to find LLM models right sized for the system's RAM, CPU, and GPU";

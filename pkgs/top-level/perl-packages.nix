@@ -28,7 +28,7 @@ self:
 # cpan2nix assumes that perl-packages.nix will be used only with perl 5.30.3 or above
 assert lib.versionAtLeast perl.version "5.30.3";
 let
-  inherit (lib) maintainers teams;
+  inherit (lib) maintainers;
 
 in
 with self;
@@ -3921,10 +3921,10 @@ with self;
 
   CatalystPluginSession = buildPerlPackage {
     pname = "Catalyst-Plugin-Session";
-    version = "0.43";
+    version = "0.44";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/H/HA/HAARG/Catalyst-Plugin-Session-0.43.tar.gz";
-      hash = "sha256-Xn180rlbH8IkS8buuPRPg11gPqB/WjkRCIHbYJKLFMQ=";
+      url = "mirror://cpan/authors/id/H/HA/HAARG/Catalyst-Plugin-Session-0.44.tar.gz";
+      hash = "sha256-CSyNgOA1D5Jdx2XycsDuKPmSMAsU9bhphBIgTmyFfEI=";
     };
     buildInputs = [
       TestDeep
@@ -3933,6 +3933,7 @@ with self;
     ];
     propagatedBuildInputs = [
       CatalystRuntime
+      CryptSysRandom
       ObjectSignature
     ];
     meta = {
@@ -25313,10 +25314,10 @@ with self;
 
   NetCIDRLite = buildPerlPackage {
     pname = "Net-CIDR-Lite";
-    version = "0.23";
+    version = "0.24";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/S/ST/STIGTSP/Net-CIDR-Lite-0.23.tar.gz";
-      hash = "sha256-mlgnjkmgjN65vsAc7N06lb5zbQ59TQXRP5COOj/hDTI=";
+      url = "mirror://cpan/authors/id/S/ST/STIGTSP/Net-CIDR-Lite-0.24.tar.gz";
+      hash = "sha256-+rBqxO5gqYFhxmwQUPofJPa5lwmtD0sO3chOxxynrRc=";
     };
     meta = {
       description = "Perl extension for merging IPv4 or IPv6 CIDR addresses";
@@ -39298,10 +39299,10 @@ with self;
 
   YAMLSyck = buildPerlPackage {
     pname = "YAML-Syck";
-    version = "1.36";
+    version = "1.45";
     src = fetchurl {
-      url = "mirror://cpan/authors/id/T/TO/TODDR/YAML-Syck-1.36.tar.gz";
-      hash = "sha256-Tc2dmzsM48ZaL/K5tMb/+LZJ/fJDv9fhiJVDvs25GlI=";
+      url = "mirror://cpan/authors/id/T/TO/TODDR/YAML-Syck-1.45.tar.gz";
+      hash = "sha256-8t4a+08MVsNubVJgqgvSyPGOTYUAnc9YQiBOoqf7w98=";
     };
     env.NIX_CFLAGS_COMPILE = "-std=gnu11";
     meta = {

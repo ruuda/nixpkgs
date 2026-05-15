@@ -11,7 +11,7 @@
   versionCheckHook,
   rolldown,
   installShellFiles,
-  version ? "2026.4.21",
+  version ? "2026.5.7",
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "openclaw";
@@ -21,10 +21,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     owner = "openclaw";
     repo = "openclaw";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-K1Pl9lXzGKfoq/fXWxYX5PoY3IBzJr0PPstUDGET/gs=";
+    hash = "sha256-ICkq6YfMJVvRC93sM+7/q2JI82wUhjaYAI3pRzmTHYc=";
   };
 
-  pnpmDepsHash = "sha256-FDajXHs4s0+QDRPq4ZxQWWW9rqeSJVYACAl/5Mw2Agc=";
+  pnpmDepsHash = "sha256-LXaRfZ0WY8VDpDc2zFr+Oel6AuYo6SiTrp37yokT1VU=";
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
@@ -58,43 +58,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     chmod -R u+w node_modules/rolldown node_modules/@rolldown/pluginutils \
       node_modules/.pnpm/node_modules/rolldown node_modules/.pnpm/node_modules/@rolldown/pluginutils
 
-    # In Nix sandbox, npm install has no network access.
-    # 1) Skip missing/mismatched deps in closure walk instead of aborting.
-    # 2) Never fall through to the npm-install path.
-    substituteInPlace scripts/stage-bundled-plugin-runtime-deps.mjs \
-      --replace-fail \
-        'if (installedVersion === null || !dependencyVersionSatisfied(spec, installedVersion)) {
-          return null;
-        }' \
-        'if (installedVersion === null || !dependencyVersionSatisfied(spec, installedVersion)) {
-          continue;
-        }' \
-      --replace-fail \
-        '    if (
-          stageInstalledRootRuntimeDeps({
-            directDependencyPackageRoot,
-            fingerprint,
-            packageJson,
-            pluginDir,
-            pruneConfig,
-            repoRoot,
-          })
-        ) {
-          continue;
-        }' \
-        '    if (
-          stageInstalledRootRuntimeDeps({
-            directDependencyPackageRoot,
-            fingerprint,
-            packageJson,
-            pluginDir,
-            pruneConfig,
-            repoRoot,
-          })
-        ) {
-          continue;
-        }
-        continue; // nix: sandbox has no npm'
     pnpm build
     pnpm ui:build
 
@@ -109,7 +72,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
 
     cp --reflink=auto -r package.json dist node_modules $libdir/
-    cp --reflink=auto -r assets docs skills patches extensions qa $libdir/
+    cp --reflink=auto -r docs skills patches extensions qa $libdir/
 
     rm -f $libdir/node_modules/.pnpm/node_modules/clawdbot \
       $libdir/node_modules/.pnpm/node_modules/moltbot \
@@ -137,7 +100,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       installShellCompletion --cmd openclaw \
         --bash <(${emulator} $out/bin/openclaw completion --shell bash) \
         --fish <(${emulator} $out/bin/openclaw completion --shell fish) \
-        --zsh <(${emulator} $out/bin/openclaw completion --shell zsh)
+        --zsh  <(${emulator} $out/bin/openclaw completion --shell zsh)
     ''
   );
 

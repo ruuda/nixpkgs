@@ -45,9 +45,8 @@ buildPythonPackage (finalAttrs: {
   ];
   # pytest runs from the source root but asyncio_mode=auto is configured in
   # crates/primp-python/pyproject.toml, which pytest doesn't pick up from there
-  pytestFlagsArray = [
-    "-o"
-    "asyncio_mode=auto"
+  pytestFlags = [
+    "--override-ini=asyncio_mode=auto"
   ];
 
   disabledTestPaths = [
@@ -57,7 +56,7 @@ buildPythonPackage (finalAttrs: {
 
   # Tests crash with Abort trap: 6 on Darwin due to tokio runtime
   # initialization in PyInit_pyo3_async_runtimes being blocked by the sandbox.
-  doCheck = !stdenv.isDarwin;
+  doCheck = !stdenv.hostPlatform.isDarwin;
 
   pythonImportsCheck = [ "primp" ];
 

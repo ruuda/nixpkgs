@@ -97,7 +97,7 @@ let
 in
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "zed-editor";
-  version = "1.0.0";
+  version = "1.2.3";
 
   outputs = [
     "out"
@@ -110,7 +110,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "zed-industries";
     repo = "zed";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-D5V0pvL3WCwhcC8dnNKTXRdnFq8LMZZ0/GDjw8xf95g=";
+    hash = "sha256-ACoHKgc7kazCSpWkCgbGxqt6mWgpFflkeCUbglELMXs=";
   };
 
   postPatch = ''
@@ -139,7 +139,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     rm -r $out/git/*/candle-book/
   '';
 
-  cargoHash = "sha256-xtw7r7VluCEqXWKnxpVk8BPqr+mJV5rB3Eq/PvsKPBk=";
+  cargoHash = "sha256-VTNElK6+g2hPJUvI12qbWnCe3TJDWMfsgkCuTnygVTY=";
 
   __structuredAttrs = true;
 

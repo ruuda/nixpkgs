@@ -82,6 +82,10 @@ in
       "programs"
       "gnome-documents"
     ] "The corresponding package was removed from nixpkgs.")
+    (mkRemovedOptionModule [
+      "programs"
+      "pqos-wrapper"
+    ] "The corresponding package was removed from nixpkgs.") # added 2026-05-13
     (mkRemovedOptionModule
       [
         "services"
@@ -506,6 +510,9 @@ in
     '')
     (mkRemovedOptionModule [ "services" "pyload" ] ''
       services.pyload has been removed since the pyload-ng package had vulnerabilities and was unmaintained in nixpkgs.
+    '')
+    (mkRemovedOptionModule [ "services" "xtreemfs" ] ''
+      services.xtreemfs has been removed as it was broken and unmaintained upstream
     '')
     # Do NOT add any option renames here, see top of the file
   ];

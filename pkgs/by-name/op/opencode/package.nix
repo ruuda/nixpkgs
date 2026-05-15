@@ -16,13 +16,13 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "opencode";
-  version = "1.14.30";
+  version = "1.14.48";
 
   src = fetchFromGitHub {
     owner = "anomalyco";
     repo = "opencode";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-pRMPa0ba71wLo4ZumbV18+y80GbcoU7NN6+P3e8LUTM=";
+    hash = "sha256-gyybqabTco+5ZeWv4lCX8t/R9Jm3tYsA8wVvkrxkEYQ=";
   };
 
   node_modules = stdenvNoCC.mkDerivation {
@@ -75,7 +75,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     # NOTE: Required else we get errors that our fixed-output derivation references store paths
     dontFixup = true;
 
-    outputHash = "sha256-0dBgIXkGplKmq/sbXwhLoKUGwTIZU+TeC74YkByNOYk=";
+    outputHash = "sha256-94uXrhyGqW016U6LPE/xIfZGoDOzyUto5DyQrYYePds=";
     outputHashAlgo = "sha256";
     outputHashMode = "recursive";
   };
@@ -85,7 +85,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     nodejs
     installShellFiles
     makeBinaryWrapper
-    models-dev
     writableTmpDirAsHomeHook
   ];
 

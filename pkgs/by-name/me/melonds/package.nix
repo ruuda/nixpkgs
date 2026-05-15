@@ -3,7 +3,7 @@
   SDL2,
   cmake,
   enet,
-  extra-cmake-modules,
+  kdePackages,
   fetchFromGitHub,
   faad2,
   libGL,
@@ -29,23 +29,24 @@ let
 in
 stdenv.mkDerivation (finalAttrs: {
   pname = "melonds";
-  version = "1.1-unstable-2026-04-20";
+  version = "1.1-unstable-2026-05-11";
 
   src = fetchFromGitHub {
     owner = "melonDS-emu";
     repo = "melonDS";
-    rev = "42e09ba54980b64c59991e446b5384484f5619a3";
-    hash = "sha256-sHRVDrPsBOrAsQhuLzocKzAwbaloo4YSQjIZF22O+Ww=";
+    rev = "889e26e9490c828b039387e8a2ef04079b86801d";
+    hash = "sha256-mMeBDsZcljG4FAhkpYlQwfUjA0HMZKNlIx6ndkhn4C0=";
   };
 
   nativeBuildInputs = [
     cmake
-    extra-cmake-modules
+    kdePackages.extra-cmake-modules
     pkg-config
     wrapQtAppsHook
   ];
 
   buildInputs = [
+    kdePackages.extra-cmake-modules
     SDL2
     enet
     faad2

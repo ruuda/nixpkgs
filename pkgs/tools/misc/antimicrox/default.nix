@@ -2,7 +2,7 @@
   lib,
   stdenv,
   cmake,
-  extra-cmake-modules,
+  kdePackages,
   pkg-config,
   itstool,
   udevCheckHook,
@@ -26,7 +26,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [
     cmake
-    extra-cmake-modules
+    kdePackages.extra-cmake-modules
     pkg-config
     itstool
     udevCheckHook
@@ -48,7 +48,7 @@ stdenv.mkDerivation rec {
   meta = {
     description = "GUI for mapping keyboard and mouse controls to a gamepad";
     inherit (src.meta) homepage;
-    maintainers = with lib.maintainers; [ sbruder ];
+    maintainers = [ ];
     license = lib.licenses.gpl3Plus;
     platforms = with lib.platforms; linux;
     mainProgram = "antimicrox";

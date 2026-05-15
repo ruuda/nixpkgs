@@ -9,10 +9,10 @@
 }:
 let
   pname = "swagger-typescript-api";
-  version = "13.6.5";
+  version = "13.9.1";
 
   node-modules-hash = {
-    "x86_64-linux" = "sha256-N19ocmrqQ8SpDNhmpCNC1wdWGrkBXCdio+ZfEXceaUA=";
+    "x86_64-linux" = "sha256-QxnqTaV5oN5WoYvLzTckWrYAZVAUxTSLYHVTmmqhmgM=";
   };
 in
 stdenv.mkDerivation (finalAttrs: {
@@ -22,12 +22,17 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "acacode";
     repo = "swagger-typescript-api";
     rev = "v${version}";
-    hash = "sha256-DAgE88JBJLNkg9WOO2qVI2dpdfNFvvBIcy++S/PX2NY=";
+    hash = "sha256-PnQ2aTj8oVUqoqM9voupfBqPu7MZSVflUtuGrXznifo=";
   };
 
   node_modules = stdenv.mkDerivation {
     inherit (finalAttrs) src version;
     pname = "${pname}-node_modules";
+
+    impureEnvVars = lib.fetchers.proxyImpureEnvVars ++ [
+      "GIT_PROXY_COMMAND"
+      "SOCKS_SERVER"
+    ];
 
     nativeBuildInputs = [
       bun
@@ -35,6 +40,9 @@ stdenv.mkDerivation (finalAttrs: {
     ];
 
     dontConfigure = true;
+    # Prevent patchShebangs from rewriting node_modules/.bin shebangs to store
+    # paths, which would make this fixed-output derivation's output hash unstable.
+    dontPatchShebangs = true;
 
     buildPhase = ''
       runHook preBuild

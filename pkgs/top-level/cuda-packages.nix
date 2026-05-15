@@ -23,12 +23,12 @@ let
       inherit (cudaPackages_12_6.backendStdenv) hasJetsonCudaCapability hostPlatform;
     in
     mkCudaPackages {
-      cublasmp = "0.6.0";
+      cublasmp = "0.8.1";
       cuda = "12.6.3";
       cudnn = "9.13.0";
       cudss = "0.6.0";
       cuquantum = "25.09.0";
-      cusolvermp = "0.7.0";
+      cusolvermp = "0.8.0";
       cusparselt = "0.6.3";
       cutensor = "2.3.1";
       nppplus = "0.10.0";
@@ -50,12 +50,12 @@ let
       inherit (cudaPackages_12_8.backendStdenv) hasJetsonCudaCapability hostPlatform;
     in
     mkCudaPackages {
-      cublasmp = "0.6.0";
+      cublasmp = "0.8.1";
       cuda = "12.8.1";
       cudnn = "9.13.0";
       cudss = "0.6.0";
       cuquantum = "25.09.0";
-      cusolvermp = "0.7.0";
+      cusolvermp = "0.8.0";
       cusparselt = "0.8.1";
       cutensor = "2.3.1";
       nppplus = "0.10.0";
@@ -77,12 +77,12 @@ let
       inherit (cudaPackages_12_9.backendStdenv) hasJetsonCudaCapability hostPlatform;
     in
     mkCudaPackages {
-      cublasmp = "0.6.0";
+      cublasmp = "0.8.1";
       cuda = "12.9.1";
       cudnn = "9.13.0";
       cudss = "0.6.0";
       cuquantum = "25.09.0";
-      cusolvermp = "0.7.0";
+      cusolvermp = "0.8.0";
       cusparselt = "0.8.1";
       cutensor = "2.3.1";
       nppplus = "0.10.0";
@@ -107,12 +107,12 @@ let
       inherit (cudaPackages_13_0.backendStdenv) requestedJetsonCudaCapabilities;
     in
     mkCudaPackages {
-      cublasmp = "0.6.0";
+      cublasmp = "0.8.1";
       cuda = "13.0.3";
       cudnn = "9.13.0";
       cudss = "0.6.0";
       cuquantum = "25.09.0";
-      cusolvermp = "0.7.0";
+      cusolvermp = "0.8.0";
       cusparselt = "0.8.1";
       cutensor = "2.3.1";
       nppplus = "0.10.0";
@@ -129,12 +129,12 @@ let
       inherit (cudaPackages_13_1.backendStdenv) requestedJetsonCudaCapabilities;
     in
     mkCudaPackages {
-      cublasmp = "0.6.0";
+      cublasmp = "0.8.1";
       cuda = "13.1.1";
       cudnn = "9.13.0";
       cudss = "0.6.0";
       cuquantum = "25.09.0";
-      cusolvermp = "0.7.0";
+      cusolvermp = "0.8.0";
       cusparselt = "0.8.1";
       cutensor = "2.3.1";
       nppplus = "0.10.0";
@@ -151,12 +151,12 @@ let
       inherit (cudaPackages_13_2.backendStdenv) requestedJetsonCudaCapabilities;
     in
     mkCudaPackages {
-      cublasmp = "0.6.0";
+      cublasmp = "0.8.1";
       cuda = "13.2.0";
       cudnn = "9.13.0";
       cudss = "0.6.0";
       cuquantum = "25.09.0";
-      cusolvermp = "0.7.0";
+      cusolvermp = "0.8.0";
       cusparselt = "0.8.1";
       cutensor = "2.3.1";
       nppplus = "0.10.0";
